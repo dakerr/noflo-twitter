@@ -41,7 +41,7 @@ class TweetPoll extends noflo.LoggingComponent
       catch e
         @sendLog
           logLevel: "error"
-          context: "Processing a message on the IN port."
+          context: "Processing a message requesting a poll of Twitter information."
           problem: "The request document was missing required information: " + e
           solution: "Check the examples documentation for how to request work from this component."
 
@@ -66,7 +66,7 @@ class TweetPoll extends noflo.LoggingComponent
       else
         @sendLog
           logLevel: "error"
-          context: "Processing a message on the IN port."
+          context: "Processing a message requesting a poll of Twitter information."
           problem: "Request method '#{requestDoc.method}' is not supported.  Twitter only uses GET and POST."
           solution: "Check the Twitter API documentation at https://dev.twitter.com/docs/api/1.1 to see which method to use for this call."
 
