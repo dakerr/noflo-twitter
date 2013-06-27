@@ -13,7 +13,9 @@
     "coffee-script": "1.4.x",
     "noflo": "0.3.x",
     "oauth": "0.9.10",
-    "chai": "~1.5.0"
+    "chai": "~1.5.0",
+    "oauth-sign": "0.3.x",
+    "node-uuid": "1.4.x"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
@@ -22,7 +24,8 @@
   },
   "noflo": {
     "components": {
-      "TweetPoll": "./components/TweetPoll.coffee"
+      "TweetPoll": "./components/TweetPoll.coffee",
+      "PublicFilterStream": "./components/PublicFilterStream.coffee"
     }
   },
   "scripts": {
