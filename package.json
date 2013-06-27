@@ -1,0 +1,32 @@
+{
+  "name": "noflo-twitter",
+  "description": "Twitter components for the NoFlo flow-based programming environment",
+  "author": "Robin Galloway-Lunn",
+  "version": "0.0.1",
+  "licenses": [{
+    "type": "MIT"
+  }],
+  "engines": {
+    "node": ">=0.9.0"
+  },
+  "dependencies": {
+    "coffee-script": "1.4.x",
+    "noflo": "0.3.x",
+    "oauth": "0.9.10",
+    "chai": "~1.5.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "coffeelint": "*",
+    "nock": "0.18.2"
+  },
+  "noflo": {
+    "components": {
+      "TweetPoll": "./components/TweetPoll.coffee"
+    }
+  },
+  "scripts": {
+    "pretest": "./node_modules/.bin/coffeelint  -f coffeelint_config.json -r components spec lib",
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script spec/*"
+  }
+}
