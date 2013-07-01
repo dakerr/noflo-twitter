@@ -59,9 +59,9 @@ class RestApi extends noflo.LoggingComponent
     switch requestDoc.method.toUpperCase()
       when "GET"
         url = requestDoc.url + "?" + querystring.stringify(requestDoc.qs)
-        twitter.get url, requestDoc.auth.token, requestDoc.auth.tokenSecret, @parseTweets
+        twitter.get url, requestDoc.auth.token, requestDoc.auth.tokenSecret, @makeTweetParserForRequest(requestDoc)
       when "POST"
-        twitter.post url, requestDoc.auth.token, requestDoc.auth.tokenSecret, requestDoc.qs, @parseTweets
+        twitter.post url, requestDoc.auth.token, requestDoc.auth.tokenSecret, requestDoc.qs, @makeTweetParserForRequest(requestDoc)
       else
         @sendLog
           logLevel: "error"
@@ -71,31 +71,32 @@ class RestApi extends noflo.LoggingComponent
 
     @disconnectAllPorts()
 
-  parseTweets: (error, data, response) =>
-    if error
-      @sendLog
-        logLevel: "error"
-        context: "Polling Twitter for tweets."
-        problem: error
-        solution: "Fix your request or try again later."
-    else
-      tweetCount = 0
-
-      try
-        for tweet in JSON.parse(data)
-          @outPorts.out.send tweet
-          tweetCount++
-      catch parseError
+  makeTweetParserForRequest: (requestDoc) =>
+    return (error, data, response) =>
+      if error
         @sendLog
           logLevel: "error"
-          context: "Parsing tweet data from Twitter."
-          problem: parseError
-          solution: "Refer this error to the developer of noflo-twitter or fix it yourself by forking the github repository."
+          context: "Sending a request to the Twitter REST API."
+          problem: error
+          solution: "Fix your request or try again later."
+      else
+        @outPorts.out.beginGroup requestDoc
 
-      @sendLog
-        logLevel: "info"
-        message: "Polling Twitter for tweets finished successfully.  #{tweetCount} tweets read."
-        tweetCount: tweetCount
+        try
+          @outPorts.out.send tweet for tweet in JSON.parse(data)
+        catch parseError
+          @sendLog
+            logLevel: "error"
+            context: "Parsing response from Twitter REST API."
+            problem: parseError
+            solution: "Refer this error to the developer of noflo-twitter or fix it yourself by forking the github repository."
+
+        @outPorts.out.endGroup()
+
+        @sendLog
+          logLevel: "info"
+          message: "Twitter REST API call finished successfully."
+          request: requestDoc
 
   disconnectAllPorts: =>
     @outPorts.out.disconnect()
