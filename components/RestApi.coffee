@@ -1,4 +1,3 @@
-
 noflo = require "noflo"
 chai = require "chai"
 oauth = require "oauth"
