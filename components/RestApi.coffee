@@ -3,7 +3,7 @@ chai = require "chai"
 oauth = require "oauth"
 querystring = require "querystring"
 
-class TweetPoll extends noflo.LoggingComponent
+class RestApi extends noflo.LoggingComponent
   constructor: ->
     super
 
@@ -101,4 +101,4 @@ class TweetPoll extends noflo.LoggingComponent
     @outPorts.out.disconnect()
     @outPorts.log.disconnect()
 
-exports.getComponent = -> new TweetPoll
+exports.getComponent = -> new RestApi
