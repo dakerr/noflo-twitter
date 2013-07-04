@@ -61,7 +61,7 @@ class RestApi extends noflo.LoggingComponent
         url = requestDoc.url + "?" + querystring.stringify(requestDoc.qs)
         twitter.get url, requestDoc.auth.token, requestDoc.auth.tokenSecret, @makeTweetParserForRequest(requestDoc)
       when "POST"
-        twitter.post url, requestDoc.auth.token, requestDoc.auth.tokenSecret, requestDoc.qs, @makeTweetParserForRequest(requestDoc)
+        twitter.post requestDoc.url, requestDoc.auth.token, requestDoc.auth.tokenSecret, requestDoc.qs, @makeTweetParserForRequest(requestDoc)
       else
         @sendLog
           logLevel: "error"
