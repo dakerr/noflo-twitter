@@ -1,0 +1,4 @@
+'examples/user_timeline_stream.json' -> IN ReadFile(ReadFile)
+ReadFile() OUT -> IN TweetStream(twitter/UserStream)
+TweetStream() OUT -> IN ConsoleLogger(Output)
+TweetStream() LOG -> IN ConsoleLogger(Output)

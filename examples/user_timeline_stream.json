@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "token": "your token here",
+    "tokenSecret": "your token secret here",
+    "consumerKey": "your consumer key",
+    "consumerSecret": "your consumer secret..."
+  },
+  "with": "followings",
+  "replies": "all"
+}
