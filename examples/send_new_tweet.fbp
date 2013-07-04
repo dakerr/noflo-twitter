@@ -1,0 +1,4 @@
+'examples/send_new_tweet.json' -> IN ReadFile(ReadFile)
+ReadFile() OUT -> IN TweetPublisher(twitter/RestApi)
+TweetPublisher() OUT -> IN ConsoleLogger(Output)
+TweetPublisher() LOG -> IN ConsoleLogger(Output)

@@ -1,0 +1,13 @@
+{
+  "auth": {
+    "token": "your token here",
+    "tokenSecret": "your token secret here",
+    "consumerKey": "your consumer key",
+    "consumerSecret": "your consumer secret..."
+  },
+  "url": "https://api.twitter.com/1.1/statuses/update.json",
+  "method": "POST",
+  "qs": {
+  	"status": "This tweet came from http://NoFlojs.org."
+  }
+}
