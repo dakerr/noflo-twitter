@@ -43,7 +43,7 @@ class UserStream extends noflo.LoggingComponent
         @disconnectAllPorts()
 
   twitterStream: (requestDoc) =>
-    stream = twitstream.UserStream(requestDoc)
+    stream = twitstream.Userstream(requestDoc)
 
     stream.on "readable", =>
       tweet = stream.read()
