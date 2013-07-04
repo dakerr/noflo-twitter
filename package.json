@@ -25,7 +25,8 @@
   "noflo": {
     "components": {
       "RestApi": "./components/RestApi.coffee",
-      "PublicFilterStream": "./components/PublicFilterStream.coffee"
+      "PublicFilterStream": "./components/PublicFilterStream.coffee",
+      "UserStream": "./components/UserStream.coffee"
     }
   },
   "scripts": {
