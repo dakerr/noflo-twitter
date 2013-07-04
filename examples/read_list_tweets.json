@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "token": "your token here",
+    "tokenSecret": "your token secret here",
+    "consumerKey": "your consumer key",
+    "consumerSecret": "your consumer secret..."
+  },
+  "url": "https://api.twitter.com/1.1/lists/statuses.json",
+  "method": "GET",
+  "qs": {
+  	"slug": "your list name here",
+    "owner_screen_name": "your screen name without an @ symbol here",
+    "count": "20",
+    "include_entities": "true"
+  }
+}

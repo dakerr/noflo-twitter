@@ -1,0 +1,4 @@
+'examples/read_list_tweets.json' -> IN ReadFile(ReadFile)
+ReadFile() OUT -> IN TweetReader(twitter/RestApi)
+TweetReader() OUT -> IN ConsoleLogger(Output)
+TweetReader() LOG -> IN ConsoleLogger(Output)
