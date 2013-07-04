@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+	echo "usage: run_fbp.sh example_flow.fbp"
+	exit 1
+fi
+
 EXAMPLE_DIR=`dirname $0`
 TOP_DIR=`dirname $0`/..
 
