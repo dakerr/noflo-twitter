@@ -1,0 +1,4 @@
+'examples/twitter_public_filter.json' -> IN ReadFile(ReadFile)
+ReadFile() OUT -> IN TwitterPublicStream(twitter/PublicFilterStream)
+TwitterPublicStream() OUT -> IN ConsoleLogger(Output)
+TwitterPublicStream() LOG -> IN ConsoleLogger(Output)
