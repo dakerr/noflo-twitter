@@ -39,7 +39,7 @@ class PublicFilterStream extends noflo.LoggingComponent
       catch e
         @sendLog
           logLevel: "error"
-          context: "Processing a message requesting a poll of Twitter information."
+          context: "Processing a message requesting a public stream of Twitter information."
           problem: "The request document was missing required information: " + e
           solution: "Check the examples documentation for how to request work from this component."
 
