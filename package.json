@@ -1,7 +1,7 @@
 {
   "name": "noflo-twitter",
   "description": "Twitter components for the NoFlo flow-based programming environment",
-  "author": "Robin Galloway-Lunn",
+  "author": "Robin Galloway-Lunn <robingl@aecher.com>",
   "version": "0.0.1",
   "licenses": [{
     "type": "MIT"
